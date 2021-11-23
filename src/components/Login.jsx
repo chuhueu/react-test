@@ -7,7 +7,7 @@ import { login } from '../redux/userSlice';
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    //const user = useSelector((state) => state.user);
+    const { error } = useSelector((state) => state.user);
     const dispatch = useDispatch();
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -46,6 +46,7 @@ const Login = () => {
                     <button className="loginButton" onClick={handleSubmit}>
                         Log in
                     </button>
+                    {error && <span style={{color: "red", textAlign: "center"}}>Wrong email or password!</span>}
                 </form>
             </div>
         </div>
