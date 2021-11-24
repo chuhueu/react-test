@@ -50,7 +50,7 @@ const Home = () => {
                     </button>
                 </span>
                 <div className="buttons">
-                    <Popup
+                    {!user ? (<Popup
                         trigger={
                             <button className="play">
                                 <PlayArrow />
@@ -77,8 +77,11 @@ const Home = () => {
                                 </div>
                             </div>
                         )}
-                    </Popup>
-                    <Popup
+                    </Popup>) : (<button className="play">
+                        <PlayArrow />
+                        <span>Play</span>
+                    </button>)}
+                    {!user ? (<Popup
                         trigger={
                             <button className="more">
                                 <InfoOutlined />
@@ -105,7 +108,10 @@ const Home = () => {
                                 </div>
                             </div>
                         )}
-                    </Popup>
+                    </Popup>) : (<button className="more">
+                        <InfoOutlined />
+                        <span>Info</span>
+                    </button>)}
                 </div>
             </div>
         </header>
